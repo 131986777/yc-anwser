@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>云厨问答</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+		<!-- Link Swiper's CSS -->
+		<link rel="stylesheet" href="dist/css/swiper.min.css">
+		<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+		<!-- Demo styles -->
+		<style>
+			@-webkit-keyframes fadeInUp {
+				0% {
+					-webkit-transform: translate3d(0, 100%, 0);
+					transform: translate3d(0, 100%, 0);
+				}
+				100% {
+					-webkit-transform: none;
+					transform: none;
+				}
+			}
+			
+			@keyframes fadeInUp {
+				0% {
+					-webkit-transform: translate3d(0, 100%, 0);
+					transform: translate3d(0, 100%, 0);
+				}
+				100% {
+					-webkit-transform: none;
+					transform: none;
+				}
+			}
+			
+			@-webkit-keyframes pulse {
+				0% {
+					-webkit-transform: scale3d(1, 1, 1);
+					transform: scale3d(1, 1, 1);
+				}
+				50% {
+					-webkit-transform: scale3d(1.05, 1.05, 1.05);
+					transform: scale3d(1.05, 1.05, 1.05);
+				}
+				100% {
+					-webkit-transform: scale3d(1, 1, 1);
+					transform: scale3d(1, 1, 1);
+				}
+			}
+			
+			@keyframes pulse {
+				0% {
+					-webkit-transform: scale3d(1, 1, 1);
+					transform: scale3d(1, 1, 1);
+				}
+				50% {
+					-webkit-transform: scale3d(1.05, 1.05, 1.05);
+					transform: scale3d(1.05, 1.05, 1.05);
+				}
+				100% {
+					-webkit-transform: scale3d(1, 1, 1);
+					transform: scale3d(1, 1, 1);
+				}
+			}
+			
+			html,
+			body {
+				position: relative;
+				height: 100%;
+			}
+			
+			body {
+				background: #eee;
+				font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+				font-size: 14px;
+				color: #000;
+				margin: 0;
+				padding: 0;
+			}
+			
+			.swiper-container {
+				width: 100%;
+				height: 100%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+			
+			.swiper-slide {
+				/*text-align: center;*/
+				font-size: 18px;
+				background: #fff;
+				/* Center slide text vertically */
+				display: -webkit-box;
+				display: -ms-flexbox;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-pack: center;
+				-ms-flex-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				-webkit-box-align: center;
+				-ms-flex-align: center;
+				/*-webkit-align-items: center;
+				align-items: center;*/
+			}
+			
+			.swiper-wrapper>.swiper-slide:nth-child(1) {
+				background: url(image/start_bg.jpg);
+				background-size: 100% 100%;
+			}
+			
+			.swiper-wrapper>.swiper-slide:nth-child(1)>div>img {
+				width: 100%;
+				position: absolute;
+				bottom: 0;
+				left: 0
+			}
+			
+			.start {
+				position: absolute;
+				top: 40.47524752%;
+				width: 15.4rem;
+				height: 5.325rem;
+				background: url(image/wyd.png) no-repeat center center;
+				background-size: 100% auto;
+				-webkit-animation: 1s pulse infinite;
+				animation: 1s pulse infinite;
+				left: 50%;
+				margin-left: -7.7rem;
+			}
+			
+			.swiper-wrapper>.swiper-slide:nth-child(2) {
+				background: url(image/q1.jpg);
+				background-size: 100% 100%;
+			}
+			
+			.btn-con {
+				position: absolute;
+				width: 100%;
+				height: 4rem;
+				bottom: 7.42574257%;
+				left: 0;
+			}
+			
+			.question-con {
+				box-sizing: border-box;
+				width: 19.5rem;
+				height: 24.75rem;
+				padding: 2.1rem 0.9rem 0;
+				margin: 0 auto;
+				margin-top: 6.5rem;
+				color: #000;
+				font-size: 16px;
+				-webkit-tap-highlight-color: transparent;
+			}
+			
+			.question-con dt {
+				line-height: 1.7rem;
+				margin-bottom: 0.75rem;
+			}
+			
+			.question-con dd {
+				box-sizing: border-box;
+				height: 2.7rem;
+				padding: .9rem 0 0 3rem;
+				margin-bottom: 3rem;
+				background: url(image/normal.png) no-repeat left center;
+				background-size: 2.775rem 2.875rem;
+				margin-left: 0;
+				margin-top: 2rem;
+			}
+			
+			.btn-con .btn-next {
+				float: right;
+				width: 50%;
+				height: 100%;
+			}
+			
+			.swiper-wrapper>.swiper-slide:nth-child(3) {
+				background: url(image/q2.jpg);
+				background-size: 100% 100%;
+			}
+			
+			.swiper-wrapper>.swiper-slide:nth-child(4) {
+				background: url(image/q2.jpg);
+				background-size: 100% 100%;
+			}
+			
+			.swiper-wrapper>.swiper-slide:nth-child(5) {
+				background: url(image/q2.jpg);
+				background-size: 100% 100%;
+			}
+			
+			.swiper-wrapper>.swiper-slide:nth-child(6) {
+				background: url(image/q3.jpg);
+				background-size: 100% 100%;
+			}
+			
+			.swiper-wrapper>.swiper-slide:nth-child(7) {
+				background: url(image/coupon.jpg);
+				background-size: 100% 100%;
+			}
+			
+			.alert {
+				width: 15rem;
+				height: 16rem;
+				background: url(image/alert.png);
+				background-size: 100% 100%;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				z-index: 100;
+				margin-left: -7.5rem;
+				margin-top: -8rem;
+			}
+			
+			.alert>div {
+				position: absolute;
+				width: 10rem;
+				height: 6rem;
+				top: 0;
+				top: 34%;
+				left: 13%;
+				text-align: center;
+			}
+			
+			#show {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				z-index: 9999;
+				top: 0;
+				display: none;
+			}
+		</style>
+	</head>
+	<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+	<body>
+		<div class="audio_div" style="background:url(http://oss.szzbmy.com/rp2/apps/static/widget/music/music_c0fda01.gif) transparent no-repeat center center;position: fixed;width: 50px;height: 50px;z-index: 1000;top: 0;right: 0;">
+			<div class="music" style="background: url(http://oss.szzbmy.com/rp2/apps/static/widget/music/music_off_8d94020.png) transparent no-repeat center center; width: 30px;height: 30px;background-size: 100%;margin:0 auto;padding-top: 50%;"></div>
+			<audio id="mp3Btn" src="music/1.mp3" loop="loop">
+
+			</audio>
+		</div>
+		<!-- Swiper -->
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide stop-swiping">
+					<div><img src="image/MMD-body1.gif" alt="" /></div>
+					<a href="" class="start  btn-next"></a>
+				</div>
+				<div class="swiper-slide stop-swiping">
+					<dl class="question-con">
+
+					</dl>
+					<div class="btn-con btn-next">
+
+					</div>
+				</div>
+				<div class="swiper-slide stop-swiping">
+					<dl class="question-con">
+
+					</dl>
+					<div class="btn-con  btn-next">
+						<a class="btn btn-share" href="javascript:;"></a>
+						<a class="btn" href="javascript:;"></a>
+					</div>
+				</div>
+				<div class="swiper-slide stop-swiping">
+					<dl class="question-con">
+
+					</dl>
+					<div class="btn-con  btn-next">
+
+					</div>
+				</div>
+				<div class="swiper-slide stop-swiping">
+					<dl class="question-con">
+
+					</dl>
+					<div class="btn-con  btn-next">
+
+					</div>
+				</div>
+				<div class="swiper-slide stop-swiping">
+					<dl class="question-con">
+
+					</dl>
+					<div class="btn-con" style="text-align: center;">
+
+						<a class="btn btn-next cj" href="javascript:;" style="    display: inline-block; float: none;"></a>
+					</div>
+				</div>
+				<div class="swiper-slide stop-swiping answer" style="font-size: 25px;">
+					<!--<div style="position: absolute;top: 20%;left:0;width: 100%;text-align: center;">恭喜你</div>-->
+					<div style="position: absolute;top: 25%;left: 0;width: 100%;text-align: center;">您答对了<span style="color: red;">5</span>道题</div>
+					<div style="position: absolute;top: 32%;left: 0;width: 100%;text-align: center;"> 获得<span style="color: red;font-size: 80px;">80</span>分</div>
+				</div>
+			</div>
+
+		</div>
+		<!-- alert -->
+		<div id="show">
+			<div class="alert">
+				<div class="contents">
+
+				</div>
+			</div>
+		</div>
+
+		</div>
+		</div>
+
+		<!-- Swiper JS -->
+		<script src="dist/js/swiper.min.js"></script>
+
+		<!-- Initialize Swiper -->
+		<script>
+		//背景音乐
+			 var audios = document.getElementById('mp3Btn');
+			function audioAutoPlay(id) {
+				var audio = document.getElementById(id);
+				audio.play();
+				document.addEventListener("WeixinJSBridgeReady", function() {
+					audio.play();
+				}, false);
+			}
+			audioAutoPlay('mp3Btn');
+
+			$('.audio_div').click(function() {
+				//防止冒泡
+				event.stopPropagation();
+				if(audios.paused) //如果当前是暂停状态
+				{
+					$('.audio_div').css("background", "url(http://oss.szzbmy.com/rp2/apps/static/widget/music/music_c0fda01.gif) transparent no-repeat center center");
+					audios.play(); //播放
+					return;
+				}
+
+				//当前是播放状态
+				$('.audio_div').css("background", "url('')");
+
+				audios.pause(); //暂停
+			});
+			
+			
+			
+			
+
+			//思路：  随机取5个数组  赋值   用 js=ture 判断正确  在错误标签中放上正确答案方便弹窗弹出正确答案 
+			var y = 0
+				// 问题 
+			var arr = [{
+				subject: '云厨一站的口号是什么？',
+				'a': '云厨一站，回家吃饭',
+				'b': '云厨一站，快乐吃饭',
+				'answer': '0'
+			}, {
+				subject: '云厨一站的配送是采用什么物流方式？',
+				'a': '普通物流',
+				'b': '冷链物流',
+				'answer': '1'
+			}, {
+				subject: '云厨一站已经开了多少家门店？',
+				'a': '100家以下',
+				'b': '100家以上',
+				'answer': '1'
+			}, {
+				subject: '云厨一站蔬菜种植基地在哪里？',
+				'a': '六合',
+				'b': '八卦洲',
+				'answer': '0'
+			}, {
+				subject: '云厨一站的理念是什么？',
+				'a': '互联网+菜场',
+				'b': '互联网+现代农业',
+				'answer': '1'
+			}, {
+				subject: '云厨一站的研发团队来自哪里？',
+				'a': '江苏餐饮协会',
+				'b': '江宁区餐饮协会',
+				'answer': '0'
+			}, {
+				subject: '云厨一站的客服电话是多少？',
+				'a': '4000123456',
+				'b': '4000009185',
+				'answer': '1'
+			}, {
+				subject: '云厨一站云生活馆在南京哪里？',
+				'a': '江宁区',
+				'b': '六合区',
+				'answer': '0'
+			}, {
+				subject: '云厨一站有线上商城吗？',
+				'a': '有',
+				'b': '没有',
+				'answer': '0'
+			}, {
+				subject: '云厨一站在六合的农业生态旅游基地叫什么',
+				'a': '罗布巴',
+				'b': '巴布洛',
+				'answer': '1'
+			}, ]
+
+			var swiper = new Swiper('.swiper-container', {
+				direction: 'vertical',
+				nextButton: '.btn-next',
+				noSwiping: true,
+				noSwipingClass: 'stop-swiping',
+			});
+			var show = function(answers, t) {
+
+				function hidden() {
+					$('#show').css('display', 'none');
+
+				}
+				if(t == 0) {
+					$('.contents').html(
+						'<div>回答错误</div>' +
+						'<div style="text-align: left;">正确答案是：</div>' +
+						'<div style="width: 10rem;word-break:break-all;text-align: left;">' + answers + '</div>'
+
+					)
+				}
+				if(t == 1) {
+					$('.contents').html(
+						'<div>恭喜你</div>' +
+						'<div style="font-size: 25px; color: red;">回答正确</div>'
+
+					)
+				}
+				$('#show').css('display', 'block')
+
+				setTimeout(hidden, 2000)
+
+			}
+			var Mathdom = function getArrayItems(arr, num) { //新建一个数组,将传入的数组复制过来,用于运算,而不要直接操作传入的数组;
+				var temp_array = new Array();
+				for(var index in arr) {
+					temp_array.push(arr[index]);
+				}
+				//取出的数值项,保存在此数组
+				var return_array = new Array();
+				for(var i = 0; i < num; i++) {
+					//判断如果数组还有可以取出的元素,以防下标越界
+					if(temp_array.length > 0) {
+						//在数组中产生一个随机索引
+						var arrIndex = Math.floor(Math.random() * temp_array.length);
+						//将此随机索引的对应的数组元素值复制出来
+						return_array[i] = temp_array[arrIndex];
+						//然后删掉此索引的数组元素,这时候temp_array变为新的数组
+						temp_array.splice(arrIndex, 1);
+					} else {
+						//数组中数据项取完后,退出循环,比如数组本来只有10项,但要求取出20项.
+						break;
+					}
+				}
+				return return_array;
+			}
+			var arrs = Mathdom(arr, 5)
+			for(let i = 0; i < arrs.length; i++) {
+
+				$('.question-con').eq(i).html(
+						"<dt >" + arrs[i].subject + "</dt>" +
+						"<dd class='choose'>" + arrs[i].a + "</dd>" +
+						"<dd class='choose'>" + arrs[i].b + "</dd>"
+					)
+					//				console.log($('.question-con>dl>dd').eq(i))
+			}
+			$('.start').click(function() {
+				for(let i = 0; i < arrs.length; i++) {
+					if(arrs[i].answer == 0) {
+						$('.question-con>dd').eq(i * 2).attr('jp', 'true')
+						$('.question-con>dd').eq(i * 2 + 1).attr('answer', $('.question-con>dd').eq(i * 2).html())
+					} else {
+						$('.question-con>dd').eq(i * 2 + 1).attr('jp', 'true')
+						$('.question-con>dd').eq(i * 2).attr('answer', $('.question-con>dd').eq(i * 2 + 1).html())
+					}
+
+				}
+			})
+
+			$(document).on("click", ".choose", function() {
+				if(typeof($(this).attr("jp")) == "undefined") {
+
+					show($(this).attr('answer'), 0);
+					console.log($(this).attr('answer'))
+					$(this).removeClass('choose');
+					$(this).siblings().removeClass('choose');
+
+				} else {
+					y++;
+
+					show($(this).attr('answer'), 1);
+
+					$(this).removeClass('choose');
+					$(this).siblings().removeClass('choose');
+				}
+			});
+			$('.cj').click(function() {
+				$('.answer span').eq(0).html(y)
+				$('.answer span').eq(1).html(y * 20)
+			})
+			console.log(Mathdom(arr, 5))
+		</script>
+	</body>
+
+</html>
